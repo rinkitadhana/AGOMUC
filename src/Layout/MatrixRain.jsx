@@ -9,7 +9,7 @@ const MatrixRain = () => {
     let width = (canvas.width = window.innerWidth)
     let height = (canvas.height = window.innerHeight)
     let columns = Math.floor(width / 20) // Number of columns based on character width
-    const characters = "abcdefghijklmnopqrstuvwxyz0123456789"
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     const charArray = characters.split("")
     let drops = []
 
@@ -18,7 +18,7 @@ const MatrixRain = () => {
       drops[i] = 1
     }
 
-    let frameRate = 18 // Adjust the frame rate (lower value = slower speed)
+    let frameRate = 10 // Adjust the frame rate (lower value = slower speed)
     let lastFrameTime = Date.now()
 
     const draw = () => {
@@ -27,6 +27,7 @@ const MatrixRain = () => {
       ctx.fillRect(0, 0, width, height)
 
       ctx.fillStyle = "#0f0" // Green color for characters
+      ctx.fillStyle = "#0008ff"
 
       // Draw the characters
       ctx.font = "15px monospace"
