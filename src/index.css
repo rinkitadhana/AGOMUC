@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::selection {
+  @apply bg-white text-black;
+}
+
+/* For Firefox-specific styling */
+::-moz-selection {
+  @apply bg-white text-black;
+}

@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className=" flex items-center gap-8">
         {navLinks.map((nav) => (
           <a
-            className=" opacity-60  hover:opacity-100  "
+            className=" transition duration-300 opacity-60  hover:opacity-100  "
             key={nav.id}
             href={nav.link}
           >
@@ -19,7 +19,7 @@ const Navbar = () => {
           </a>
         ))}
       </div>
-      <div className=" flex gap-1 items-center text-sm  font-bold">
+      <div className="  flex gap-1 items-center text-sm  font-medium opacity-90">
         <span>Local Time</span>
         <LocalTime />
       </div>

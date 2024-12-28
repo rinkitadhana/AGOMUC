@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         popins: ["Poppins", "serif"],
+        inter: ["inter-variable", "sans-serif"],
       },
     },
   },
