@@ -28,7 +28,6 @@ const MatrixRain = () => {
 
       ctx.fillStyle = "#0f0" // Green color for characters
       ctx.fillStyle = "#0008ff"
-
       // Draw the characters
       ctx.font = "15px monospace"
       for (let i = 0; i < drops.length; i++) {
