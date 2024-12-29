@@ -5,7 +5,10 @@ export default {
     extend: {
       fontFamily: {
         popins: ["Poppins", "serif"],
-        inter: ["inter-variable", "sans-serif"],
+        inter: ["Inter", "serif"],
+      },
+      boxShadow: {
+        btn: "0px 0px 5px ",
       },
     },
   },
