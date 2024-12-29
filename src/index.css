@@ -10,3 +10,10 @@
 ::-moz-selection {
   @apply bg-white text-black;
 }
+body {
+  background-color: black;
+}
+
+.hvr-sdw {
+  @apply hover:border-blue-300 hover:shadow-btn hover:shadow-blue-300/90;
+}
