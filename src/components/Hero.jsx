@@ -11,7 +11,7 @@ const Hero = () => {
           prevention, providing real-time analytics and safety features to
           enhance community security.
         </p>
-        <div className=" select-none flex gap-8 items-center">
+        <div className=" select-none flex gap-5 items-center">
           <a className="transition duration-300 cursor-pointer bg-blue-700 rounded-full px-3.5  py-2 border border-blue-600 hvr-sdw">
             About us
           </a>
