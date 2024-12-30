@@ -24,8 +24,8 @@ const RotatingCube = () => {
     renderer.setClearColor(0x000000, 0)
     mountRef.current.appendChild(renderer.domElement)
 
-    // Create cube geometry
-    const geometry = new THREE.BoxGeometry(2, 2, 2)
+    // Create larger cube geometry (increased from 2 to 4)
+    const geometry = new THREE.BoxGeometry(6, 6, 6)
 
     // Create material for faces
     const faceMaterial = new THREE.MeshBasicMaterial({
@@ -38,7 +38,7 @@ const RotatingCube = () => {
     // Create the edges geometry
     const edgesGeometry = new THREE.EdgesGeometry(geometry)
     const edgesMaterial = new THREE.LineBasicMaterial({
-      color: 0x40ff40,
+      color: 0x00c000,
       linewidth: 1,
     })
 
@@ -53,8 +53,8 @@ const RotatingCube = () => {
 
     scene.add(cubeGroup)
 
-    // Position camera
-    camera.position.z = 5
+    // Move camera back to accommodate larger cube
+    camera.position.z = 8
 
     // Animation function
     const animate = () => {

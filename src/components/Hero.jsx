@@ -23,7 +23,7 @@ const Hero = () => {
           </a>
         </div>
       </div>
-      <div className=" select-none  basis-[40%]">
+      <div className=" select-none basis-[40%]">
         <RotatingCube />
       </div>
     </section>
