@@ -8,35 +8,42 @@ const MatrixRain = () => {
     const ctx = canvas.getContext("2d")
     let width = (canvas.width = window.innerWidth)
     let height = (canvas.height = window.innerHeight)
-    let columns = Math.floor(width / 20) // Number of columns based on character width
+
+    // Set initial black background
+    ctx.fillStyle = "rgb(0, 0, 0)"
+    ctx.fillRect(0, 0, width, height)
+
+    let columns = Math.floor(width / 20)
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     const charArray = characters.split("")
     let drops = []
+    let colors = []
 
-    // Initialize drops
+    // Initialize drops with random starting positions
     for (let i = 0; i < columns; i++) {
-      drops[i] = 1
+      drops[i] = Math.random() * -100
+      colors[i] = Math.random() < 0.5 ? "#0066ff" : "#0f0"
     }
 
-    let frameRate = 10 // Adjust the frame rate (lower value = slower speed)
+    let frameRate = 10
     let lastFrameTime = Date.now()
 
     const draw = () => {
-      // Create a translucent black rectangle to create the fading effect
-      ctx.fillStyle = "rgba(0, 0, 0, 0.04)"
+      // Reduced alpha value for smoother trails
+      ctx.fillStyle = "rgba(0, 0, 0, 0.08)"
       ctx.fillRect(0, 0, width, height)
 
-      ctx.fillStyle = "#0f0" // Green color for characters
-      ctx.fillStyle = "#0008ff"
-      // Draw the characters
       ctx.font = "15px monospace"
       for (let i = 0; i < drops.length; i++) {
-        const text = charArray[Math.floor(Math.random() * charArray.length)]
-        ctx.fillText(text, i * 20, drops[i] * 20)
+        if (drops[i] > 0) {
+          const text = charArray[Math.floor(Math.random() * charArray.length)]
+          ctx.fillStyle = colors[i]
+          ctx.fillText(text, i * 20, drops[i] * 20)
+        }
 
-        // Reset drops when it reaches the bottom of the canvas
         if (drops[i] * 20 > height && Math.random() > 0.975) {
-          drops[i] = 0
+          drops[i] = -1
+          colors[i] = Math.random() < 0.5 ? "#0f0" : "#0066ff"
         }
 
         drops[i]++
@@ -47,7 +54,6 @@ const MatrixRain = () => {
       const currentTime = Date.now()
       const elapsedTime = currentTime - lastFrameTime
 
-      // Update the animation only if enough time has passed
       if (elapsedTime > 1000 / frameRate) {
         draw()
         lastFrameTime = currentTime
@@ -58,18 +64,23 @@ const MatrixRain = () => {
 
     animate()
 
-    // Update canvas dimensions on window resize
     const handleResize = () => {
       width = canvas.width = window.innerWidth
       height = canvas.height = window.innerHeight
+
+      // Set black background on resize
+      ctx.fillStyle = "rgb(0, 0, 0)"
+      ctx.fillRect(0, 0, width, height)
+
       columns = Math.floor(width / 20)
       drops = []
+      colors = []
       for (let i = 0; i < columns; i++) {
-        drops[i] = 1
+        drops[i] = Math.random() * -100
+        colors[i] = Math.random() < 0.5 ? "#0f0" : "#0066ff"
       }
     }
 
-    // Check if the user is on a mobile device before handling resize and scroll events
     const isMobileDevice = /Mobi/i.test(window.navigator.userAgent)
     if (!isMobileDevice) {
       window.addEventListener("resize", handleResize)
@@ -84,7 +95,7 @@ const MatrixRain = () => {
 
   return (
     <canvas
-      className="matrix-canvas fixed top-0 left-0 z-[-1]"
+      className="matrix-canvas fixed top-0 left-0 z-[-1] bg-black"
       ref={canvasRef}
     ></canvas>
   )
