@@ -3,7 +3,7 @@ import RotatingCube from "./RotatingCube"
 
 const Hero = () => {
   return (
-    <section className="flex gap-6 my-28 items-center">
+    <section className="flex gap-6 my-28  items-center">
       <div className=" basis-[60%] flex flex-col gap-6">
         <h1 className="text-6xl font-semibold text-white/80">AGOMUC PROGRAM</h1>
         <p className="text-lg text-zinc-200 font-medium opacity-75">
