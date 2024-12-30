@@ -7,9 +7,11 @@ const Home = () => {
     <>
       <Navbar />
       <Screen>
-        <Hero />
-        <About />
-        <div className=" h-screen"></div>
+        <div className=" flex flex-col gap-8">
+          <Hero />
+          <About />
+          <div className=" h-screen"></div>
+        </div>
       </Screen>
     </>
   )
