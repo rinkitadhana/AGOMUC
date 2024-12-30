@@ -22,7 +22,7 @@ const MatrixRain = () => {
     // Initialize drops with random starting positions
     for (let i = 0; i < columns; i++) {
       drops[i] = Math.random() * -100
-      colors[i] = Math.random() < 0.5 ? "#0066ff" : "#0f0"
+      colors[i] = Math.random() < 0.5 ? "#0066ff" : "#00c000"
     }
 
     let frameRate = 10
@@ -43,7 +43,7 @@ const MatrixRain = () => {
 
         if (drops[i] * 20 > height && Math.random() > 0.975) {
           drops[i] = -1
-          colors[i] = Math.random() < 0.5 ? "#0f0" : "#0066ff"
+          colors[i] = Math.random() < 0.5 ? "0x00c000" : "#0066ff"
         }
 
         drops[i]++
@@ -77,7 +77,7 @@ const MatrixRain = () => {
       colors = []
       for (let i = 0; i < columns; i++) {
         drops[i] = Math.random() * -100
-        colors[i] = Math.random() < 0.5 ? "#0f0" : "#0066ff"
+        colors[i] = Math.random() < 0.5 ? "0x00c000" : "#0066ff"
       }
     }
 
