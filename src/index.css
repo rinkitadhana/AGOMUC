@@ -15,11 +15,11 @@ body {
 }
 
 .hvr-sdw {
-  @apply hover:border-blue-300 hover:shadow-btn hover:shadow-blue-300/90;
+  @apply hover:border-blue-300 hover:shadow-btn hover:shadow-blue-300 transition-colors duration-300;
 }
 
 .sec-head {
   @apply font-semibold;
-  font-size: 2.7rem;
+  font-size: 2.6rem;
   line-height: 3rem;
 }
