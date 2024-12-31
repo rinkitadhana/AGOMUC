@@ -5,7 +5,9 @@ const Hero = () => {
   return (
     <section className="flex gap-6 my-28  items-center">
       <div className=" basis-[60%] flex flex-col gap-6">
-        <h1 className="text-6xl font-semibold text-white/80">AGOMUC PROGRAM</h1>
+        <h1 className=" text-6xl font-semibold text-white/80 ">
+          AGOMUC PROGRAM
+        </h1>
         <p className="text-lg text-zinc-200 font-medium opacity-75">
           At AGOMUC, we leverage advanced AI and ML to transform crime
           prevention, providing real-time analytics and safety features to
@@ -24,7 +26,7 @@ const Hero = () => {
         </div>
       </div>
       <div className=" select-none basis-[40%]">
-        <RotatingCube />
+        <RotatingCube size={3.5} />
       </div>
     </section>
   )
