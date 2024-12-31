@@ -1,96 +1,64 @@
 import React, { useEffect, useRef } from "react"
 import * as THREE from "three"
 
-const RotatingCube = () => {
+const RotatingCube = ({ size = 2 }) => {
+  // size prop controls cube size
   const mountRef = useRef(null)
 
   useEffect(() => {
-    // Scene setup
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    )
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000)
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+    })
 
-    // Get the current div's dimensions
-    const width = mountRef.current.clientWidth
-    const height = mountRef.current.clientHeight
-
-    // Set renderer size and properties
-    renderer.setSize(width, height)
+    renderer.setSize(300, 300)
     renderer.setClearColor(0x000000, 0)
     mountRef.current.appendChild(renderer.domElement)
 
-    // Create larger cube geometry (increased from 2 to 4)
-    const geometry = new THREE.BoxGeometry(6, 6, 6)
+    const geometry = new THREE.BoxGeometry(size, size, size)
+    const edges = new THREE.EdgesGeometry(geometry, 1)
+    const material = new THREE.LineBasicMaterial({ color: 0x00ff00 })
+    const wireframe = new THREE.LineSegments(edges, material)
 
-    // Create material for faces
     const faceMaterial = new THREE.MeshBasicMaterial({
-      color: 0x0066ff,
+      color: 0x00ff00,
       transparent: true,
-      opacity: 0.3,
+      opacity: 0.1,
       side: THREE.DoubleSide,
     })
+    const cube = new THREE.Mesh(geometry, faceMaterial)
 
-    // Create the edges geometry
-    const edgesGeometry = new THREE.EdgesGeometry(geometry)
-    const edgesMaterial = new THREE.LineBasicMaterial({
-      color: 0x00c000,
-      linewidth: 1,
-    })
+    scene.add(wireframe)
+    scene.add(cube)
+    camera.position.z = 5 // Moved camera back to accommodate larger cube
 
-    // Create both meshes
-    const cubeFaces = new THREE.Mesh(geometry, faceMaterial)
-    const cubeEdges = new THREE.LineSegments(edgesGeometry, edgesMaterial)
-
-    // Create a group to hold both meshes
-    const cubeGroup = new THREE.Group()
-    cubeGroup.add(cubeFaces)
-    cubeGroup.add(cubeEdges)
-
-    scene.add(cubeGroup)
-
-    // Move camera back to accommodate larger cube
-    camera.position.z = 8
-
-    // Animation function
     const animate = () => {
       requestAnimationFrame(animate)
-      cubeGroup.rotation.x += 0.01
-      cubeGroup.rotation.y += 0.01
+      wireframe.rotation.x += 0.01
+      wireframe.rotation.y += 0.01
+      cube.rotation.x += 0.01
+      cube.rotation.y += 0.01
       renderer.render(scene, camera)
     }
 
-    // Handle window resize
-    const handleResize = () => {
-      const width = mountRef.current.clientWidth
-      const height = mountRef.current.clientHeight
-
-      renderer.setSize(width, height)
-      camera.aspect = width / height
-      camera.updateProjectionMatrix()
-    }
-
-    window.addEventListener("resize", handleResize)
-
-    // Start animation
     animate()
 
-    // Cleanup
     return () => {
-      window.removeEventListener("resize", handleResize)
       mountRef.current.removeChild(renderer.domElement)
       geometry.dispose()
+      material.dispose()
       faceMaterial.dispose()
-      edgesGeometry.dispose()
-      edgesMaterial.dispose()
+      edges.dispose()
     }
-  }, [])
+  }, [size])
 
-  return <div ref={mountRef} className="w-full h-64"></div>
+  return (
+    <div className="flex items-center justify-center">
+      <div ref={mountRef} />
+    </div>
+  )
 }
 
 export default RotatingCube
