@@ -7,12 +7,16 @@ const Navbar = () => {
   const [show, setShow] = useState(false)
   return (
     <nav className=" fixed top-0 w-full z-10">
-      <div className=" font-sans  select-none text-white flex justify-between items-center py-2.5 px-40 border-b border-zinc-800 bg-black/50 backdrop-blur-md ">
-        <h1 className=" text-lg font-popins font-medium">Agomuc.</h1>
-        <div className=" flex items-center gap-8">
+      <div className=" font-sans  select-none text-white flex justify-between items-center py-2 px-32 border-b border-zinc-800 bg-black/50 backdrop-blur-md ">
+        <div className=" flex gap-2 items-center">
+          <img className=" size-10" src="public\img\logo\logo.png" />
+          <h1 className=" text-lg font-popins font-medium">AGOMUC</h1>
+        </div>
+
+        <div className=" flex items-center gap-2">
           {navLinks.map((nav) => (
             <a
-              className=" font-inter text-sm transition duration-300 opacity-60  hover:opacity-100  "
+              className="  hover:bg-zinc-900 rounded-full px-3 py-1 font-inter text-sm transition duration-300  opacity-100"
               key={nav.id}
               href={nav.link}
             >
