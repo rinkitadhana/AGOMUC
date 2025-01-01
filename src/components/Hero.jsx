@@ -3,12 +3,12 @@ import RotatingCube from "./RotatingCube"
 
 const Hero = () => {
   return (
-    <section className="flex gap-6 my-28  items-center">
+    <section className="flex md:flex-row flex-col-reverse gap-6 my-28 px-2 md:px-0  items-center">
       <div className=" basis-[60%] flex flex-col gap-6">
-        <h1 className=" text-6xl font-semibold text-white/80 ">
+        <h1 className=" md:text-6xl text-3xl font-semibold text-white/80 ">
           AGOMUC PROGRAM
         </h1>
-        <p className="text-lg text-zinc-200 font-medium opacity-75">
+        <p className="md:text-lg text-base text-zinc-200 font-medium opacity-75">
           At AGOMUC, we leverage advanced AI and ML to transform crime
           prevention, providing real-time analytics and safety features to
           enhance community security.

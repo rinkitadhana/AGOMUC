@@ -1,22 +1,28 @@
 import About from "../components/About"
+import Achievement from "../components/Achievement"
 import Footer from "../components/Footer"
 import Hero from "../components/Hero"
 import Navbar from "../components/Navbar"
-import Sample from "../components/Sample"
-import Sample2 from "../components/Sample2"
+import Progress from "../components/Progress"
 import Solutions from "../components/Solutions"
+import Vision from "../components/Vision"
 import Screen from "./../Layout/Screen"
+import Investers from "../components/Investers"
+import Carieer from "../components/Carieer"
 const Home = () => {
   return (
-    <div className=" select-none">
+    <div className="">
       <Navbar />
       <Screen>
         <div className=" flex flex-col gap-10">
           <Hero />
           <About />
           <Solutions />
-          <Sample />
-          <Sample2 />
+          <Vision />
+          <Progress />
+          <Achievement />
+          <Investers />
+          <Carieer />
         </div>
       </Screen>
       <Footer />
