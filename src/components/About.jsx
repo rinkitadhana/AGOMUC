@@ -1,6 +1,7 @@
 import { FaPlay } from "react-icons/fa"
 import MiniHeading from "./MiniHeading"
 import Title from "./Title"
+import { about1, about2 } from "../Data/Data"
 
 const About = () => {
   return (
@@ -10,11 +11,7 @@ const About = () => {
         <MiniHeading title="Story Behind Startup" />
         <div className=" flex md:flex-row flex-col gap-4 items-center">
           <div className=" rounded-xl text-lg  p-4 backdrop-blur-sm  flex flex-col gap-1 md:w-[60%]">
-            <p>
-              Born from a tragedy that shook us—a crime too common, a silence
-              too loud. In the darkness, we found purpose: to predict, prevent,
-              and protect. A safer tomorrow starts today.
-            </p>
+            <p>{about1}</p>
           </div>
           <div className=" backdrop-blur-sm  md:w-[40%] border flex flex-col gap-2 border-zinc-700 rounded-xl p-4 ">
             <video autoPlay className=" rounded-md" width="900" loop muted>
@@ -27,12 +24,7 @@ const About = () => {
       <div className="flex flex-col gap-4">
         <MiniHeading title="What we do" />
         <div className=" rounded-xl  text-lg p-4 backdrop-blur-sm  flex flex-col gap-1">
-          <p>
-            We predict the unpredictable with machine learning and deep
-            learning, transforming surveillance with computer vision, emotion
-            recognition, and cutting-edge tech. Turning shadows into insights,
-            we don’t just protect—we prevent.
-          </p>
+          <p>{about2}</p>
         </div>
       </div>
       <div className=" flex flex-col gap-4">

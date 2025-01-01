@@ -22,6 +22,7 @@ const navLinks = [
     link: "/",
   },
 ]
+
 const sampleData = [
   {
     id: 1,
@@ -61,4 +62,11 @@ const sampleData = [
   },
 ]
 
-export { navLinks, sampleData }
+const heroHead = "AGOMUC PROGRAM"
+const heroDes =
+  "At AGOMUC, we leverage advanced AI and ML to transform crime prevention, providing real-time analytics and safety features to enhance community security."
+const about1 =
+  "Born from a tragedy that shook us—a crime too common, a silence too loud. In the darkness, we found purpose: to predict, prevent, and protect. A safer tomorrow starts today."
+const about2 =
+  "We predict the unpredictable with machine learning and deep learning, transforming surveillance with computer vision, emotion recognition, and cutting-edge tech. Turning shadows into insights, we don’t just protect—we prevent."
+export { navLinks, sampleData, heroHead, heroDes, about1, about2 }
